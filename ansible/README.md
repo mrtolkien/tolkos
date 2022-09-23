@@ -1,20 +1,25 @@
 # Linux local setup
 
-## Command
-
-`ansible-playbook shell_setup.yaml`
-
 ## Pre-requisites
 
 - Install `pip`
-    - `sudo apt install python3-pip`
 - Install `ansible`
-    - `python3 -m pip install --user ansible`
+
+```shell
+sudo apt install python3-pip
+python3 -m pip install --user ansible
+```
 
 ## Installs
 
 ### Shell setup
 
+```shell
+ansible-galaxy install -r requirements.yaml
+ansible-playbook -K shell_setup.yaml
+```
+
+<!-- TODO -->
 The base playbook installs:
 
 - [`zsh`](https://www.zsh.org/)
