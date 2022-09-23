@@ -6,12 +6,14 @@
   vars:
     oh_my_zsh_plugins:
       - git
+      - fzf
       - z
       - zsh-syntax-highlighting
       - zsh-interactive-cd
       - zsh-autosuggestions
       - docker
       - docker-compose
+
     p10k_prompt_spacing: sparse
     p10k_prompt_flow: fluent
     p10k_transient_prompt: "yes"
@@ -35,6 +37,16 @@
         repo:                     https://github.com/zsh-users/zsh-autosuggestions 
         dest:                     "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
         version:                  master
+
+    - name:                       Download fzf
+      ansible.builtin.git:
+        repo:                     https://github.com/junegunn/fzf.git 
+        dest:                     "{{ ansible_env.HOME }}/.fzf"
+        depth:                    1
+        version:                  master
+
+    - name:                       Install fzf
+      ansible.builtin.shell:      "{{ ansible_env.HOME }}/.fzf/install --all"
 
     - name:                       Add .local/bin to .zshrc
       ansible.builtin.lineinfile:
