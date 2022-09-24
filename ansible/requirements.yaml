@@ -1,3 +1,4 @@
 # from galaxy
 - src: gantsign.oh-my-zsh
 - src: diodonfrost.p10k
+- src: markosamuli.pyenv

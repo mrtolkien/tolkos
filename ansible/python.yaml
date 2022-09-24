@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local 
+  name: "Python dev setup"
+  
+  vars:
+    # PyEnv vars
+    latest_python_version: "3.10.6"
+    pyenv_version: "v2.3.4"
+    pyenv_virtualenv_version: "v1.1.5"
+
+    pyenv_python_versions:
+      - "{{ latest_python_version }}"
+    pyenv_global: "{{ latest_python_version }} system"
+    # Homebrew + Python on Linux don't play well together
+    pyenv_homebrew_on_linux: false
+
+  roles:
+    - role: markosamuli.pyenv
+
+  tasks:
+    - name: Install pipx in pyenv
+      ansible.builtin.pip:
+        name: pipx
+        executable: "/home/tolki/.pyenv/shims/pip"
+
+    - name: Install poetry with pipx
+      community.general.pipx:
+        name: poetry
+        executable: "/home/tolki/.pyenv/shims/pipx"
