@@ -14,7 +14,7 @@
       - docker
       - docker-compose
 
-    p10k_prompt_style: "classic"
+    p10k_prompt_style: "lean"
     p10k_prompt_spacing: sparse
     p10k_prompt_flow: fluent
     p10k_transient_prompt: "yes"
