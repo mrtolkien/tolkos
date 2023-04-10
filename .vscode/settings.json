@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks": "file:///Users/tolki/Development/open_source/tolkos/shell_setup.yaml"
+  }
+}

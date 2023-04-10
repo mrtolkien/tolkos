@@ -1,0 +1,22 @@
+- name: Setup ZSH
+  become: true
+
+  tags:
+    - install
+    - core
+
+  block:
+    - name: Install zsh
+      apt:
+        name: zsh
+        state: present
+
+    - name: Change shell
+      shell: chsh -s `which zsh`
+
+    # TODO
+    # - name: Install Starship
+    #   community.general.cargo:
+    #     name: starship
+
+    # TODO Install (and login?) to Fig? + plugins?
