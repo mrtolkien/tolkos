@@ -2,8 +2,6 @@
 
 ## TL;DR
 
-<!-- TODO -> One-line install + dotfiles -->
-
 ```sh
 ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml && sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien
 ```
