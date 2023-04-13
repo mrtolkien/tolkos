@@ -1,5 +1,14 @@
 # TolkOS - Ansible playbooks for my machines
 
+## TL;DR
+
+<!-- TODO -> One-line install + dotfiles -->
+
+```sh
+```
+
+## Installed
+
 This repo uses `Ansible` to install:
 
 - `zsh`
