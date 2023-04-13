@@ -10,11 +10,11 @@ ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml && sh -c "$(cu
 
 ```mermaid
 flowchart TD
-    A("far:fa-theater-masks Install Ansible")
-    AA("Install dependencies\n(This repo)")
+    A(Install Ansible)
+    AA("Install dependencies\n<small>(This repo)</small>")
     B[( BitWarden CLI )]
     BB[[ 2FA with Authy ]]
-    C("Setup dotfiles with chezmoi\n(mrtolkien/dotfiles)")
+    C("Setup dotfiles with chezmoi\n<small>(<a href=https://github.com/mrtolkien/dotfiles>mrtolkien/dotfiles</a>)</small>")
     D( Decrypt secrets with age )
 
     A --> AA --> C --> D
