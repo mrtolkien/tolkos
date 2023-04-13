@@ -17,6 +17,7 @@
           - bat
           - zoxide
           - ripgrep
+          - age
         state: present
 
     # This does not work in Docker but works if running locally
