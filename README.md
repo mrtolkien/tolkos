@@ -5,6 +5,7 @@
 <!-- TODO -> One-line install + dotfiles -->
 
 ```sh
+ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml && sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien
 ```
 
 ## Installed
@@ -37,7 +38,7 @@ python3 -m pip install --user ansible
 Build and start the image:
 
 ```sh
-docker build . -t ansible_test && docker run --rm -it ansible_test bash
+docker build . -t ansible_test --platform linux/amd64 && docker run --rm -it --platform linux/amd64 ansible_test
 ```
 
 Load my dotfiles interactively with chezmoi:
