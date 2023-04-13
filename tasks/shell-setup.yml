@@ -27,7 +27,6 @@
     - name: Install Starship
       shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-    # FZF
     - name: Checkout fzf
       ansible.builtin.git:
         repo: "https://github.com/junegunn/fzf.git"
@@ -36,6 +35,10 @@
     - name: Install fzf
       shell: ~/.fzf/install --key-bindings --completion --no-update-rc
 
-    # TODO Zellij, not on APT + no simple script
+    # TODO Zellij not on APT + no simple script
     # - name: Install zellij
     #   shell: curl -sS https://zellij.dev/launch | sh
+
+    # Not working on Ubuntu ARM64
+    - name: Install atuin
+      shell: curl -sS https://raw.githubusercontent.com/ellie/atuin/main/install.sh | bash
