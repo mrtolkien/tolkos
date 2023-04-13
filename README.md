@@ -6,6 +6,27 @@
 ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml && sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien
 ```
 
+## Flow
+
+```mermaid
+flowchart TD
+    A("Install Ansible")
+    AA("Install dependencies\n(This repo)")
+    B[( BitWarden CLI )]
+    BB[[ 2FA with Authy ]]
+    C("Setup dotfiles with chezmoi\n(mrtolkien/dotfiles)")
+    D( Decrypt secrets with age )
+
+    A --> AA --> C --> D
+    AA --> B
+    BB --> B --> D
+
+    subgraph Bitwarden
+        B
+        BB
+    end
+```
+
 ## Installed
 
 This repo uses `Ansible` to install:
@@ -17,6 +38,8 @@ This repo uses `Ansible` to install:
 - `bat`
 - `zoxide`
 - `atuin`
+- `ripgrep`
+- `age`
 
 They are then configured with my [dotfiles repository](https://github.com/mrtolkien/dotfiles) which uses an interactive setup.
 
