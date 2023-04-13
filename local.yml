@@ -15,4 +15,4 @@
         - core
 
   tasks:
-    - include_tasks: tasks/zsh-setup.yaml
+    - include_tasks: tasks/zsh-setup.yml

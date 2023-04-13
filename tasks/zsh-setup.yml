@@ -14,9 +14,5 @@
     - name: Change shell
       shell: chsh -s `which zsh`
 
-    # TODO
-    # - name: Install Starship
-    #   community.general.cargo:
-    #     name: starship
-
-    # TODO Install (and login?) to Fig? + plugins?
+    - name: Install Starship
+      shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
