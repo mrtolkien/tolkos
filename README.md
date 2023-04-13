@@ -10,7 +10,7 @@ ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml && sh -c "$(cu
 
 ```mermaid
 flowchart TD
-    A("Install Ansible")
+    A("far:fa-theater-masks Install Ansible")
     AA("Install dependencies\n(This repo)")
     B[( BitWarden CLI )]
     BB[[ 2FA with Authy ]]
@@ -52,7 +52,7 @@ They are then configured with my [dotfiles repository](https://github.com/mrtolk
 python3 -m pip install --user ansible
 ```
 
-## Linux local setup
+## Linux setup
 
 ### Testing with Docker
 
@@ -62,13 +62,15 @@ Build and start the image:
 docker build . -t ansible_test --platform linux/amd64 && docker run --rm -it --platform linux/amd64 ansible_test
 ```
 
-Load my dotfiles interactively with chezmoi:
+Load dotfiles interactively with chezmoi:
 
 ```sh
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien && source ~/.zshrc
 ```
 
-#### python
+## Python
+
+TODO Review, this is obsolete
 
 ```shell
 ansible-galaxy install -r requirements.yaml
