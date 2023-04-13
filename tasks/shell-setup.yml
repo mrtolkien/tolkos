@@ -1,0 +1,36 @@
+- name: Setup ZSH
+  become: true
+
+  tags:
+    - install
+    - core
+
+  block:
+    # TODO Check if it works on MacOS
+    - name: Install CLI tools through package manager
+      ansible.builtin.package:
+        name:
+          - git
+          - zsh
+          - neovim
+          - exa
+          - bat
+          - zoxide
+          - ripgrep
+        state: present
+
+    # This does not work in Docker but works if running locally
+    - name: Change default shell
+      shell: chsh -s `which zsh`
+
+    # Not on apt yet unfortunately
+    - name: Install Starship
+      shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+
+    - name: Checkout fzf
+      ansible.builtin.git:
+        repo: "https://github.com/junegunn/fzf.git"
+        dest: ~/.fzf
+
+    - name: Install fzf
+      shell: ~/.fzf/install --key-bindings --completion --no-update-rc
