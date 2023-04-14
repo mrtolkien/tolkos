@@ -25,20 +25,21 @@
           - zsh
         state: present
 
-    - name: Download Bitwarden CLI for Linux
-      when: ansible_facts['os_family'] != "Darwin"
-      ansible.builtin.get_url:
-        url: https://vault.bitwarden.com/download/?app=cli&platform=linux
-        dest: /tmp/bw.zip
+    # TODO Was problematic
+    # - name: Download Bitwarden CLI for Linux
+    #   when: ansible_facts['os_family'] != "Darwin"
+    #   ansible.builtin.get_url:
+    #     url: https://vault.bitwarden.com/download/?app=cli&platform=linux
+    #     dest: /tmp/bw.zip
 
-    - name: Download Bitwarden CLI for Mac OS
-      when: ansible_facts['os_family'] == "Darwin"
-      ansible.builtin.get_url:
-        url: https://vault.bitwarden.com/download/?app=cli&platform=macos
-        dest: /tmp/bw.zip
+    # - name: Download Bitwarden CLI for Mac OS
+    #   when: ansible_facts['os_family'] == "Darwin"
+    #   ansible.builtin.get_url:
+    #     url: https://vault.bitwarden.com/download/?app=cli&platform=macos
+    #     dest: /tmp/bw.zip
 
-    - name: Decompress Bitwarden CLI
-      shell: unzip -f /tmp/bw.zip && mv bw /usr/local/bin/bw
+    # - name: Decompress Bitwarden CLI
+    #   shell: unzip -f /tmp/bw.zip && mv bw /usr/local/bin/bw
 
     # Not on apt yet unfortunately
     - name: Install Starship
