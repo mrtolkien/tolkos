@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 ARG TAGS
-WORKDIR /usr/local/bin
+WORKDIR /tmp/ansible
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y software-properties-common
 RUN apt-add-repository -y ppa:ansible/ansible && apt-add-repository -y ppa:neovim-ppa/unstable
