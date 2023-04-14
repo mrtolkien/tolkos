@@ -2,8 +2,22 @@
 
 ## TL;DR
 
+Install dependencies
+
 ```sh
-ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml && sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien
+ansible-pull -U https://github.com/mrtolkien/tolkos.git local.yml
+```
+
+Login to Bitwarden
+
+```sh
+bw login
+```
+
+Setup dotfiles
+
+```sh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien
 ```
 
 ## Flow
