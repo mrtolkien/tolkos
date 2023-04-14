@@ -1,9 +1,4 @@
 - hosts: localhost
-  # TODO Review that, handled with chezmoi?
-  # vars:
-  #   source_key: "./.ssh/id_rsa"
-  #   dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
-  #   personal: "{{ lookup('env', 'HOME') }}/personal"
 
   tasks:
     - include_tasks: tasks/shell-setup.yml
