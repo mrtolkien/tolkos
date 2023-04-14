@@ -1,0 +1,3 @@
+# Not on apt yet unfortunately
+- name: Install Starship
+  shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
