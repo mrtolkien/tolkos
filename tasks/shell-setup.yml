@@ -40,6 +40,10 @@
     - name: Decompress Bitwarden CLI
       shell: unzip -f /tmp/bw.zip && mv bw /usr/local/bin/bw
 
+    # Not on apt yet unfortunately
+    - name: Install Starship
+      shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+
     # FZF is still used by some other programs even with Atuin and autocomplete
     - name: Checkout fzf
       ansible.builtin.git:
