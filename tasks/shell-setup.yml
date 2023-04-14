@@ -1,33 +1,46 @@
 - name: Setup ZSH
-  become: true
 
   tags:
     - install
     - core
 
   block:
-    # TODO Check if it works on MacOS
     - name: Install CLI tools through package manager
       ansible.builtin.package:
         name:
-          - git
-          - zsh
           - neovim
           - exa
           - bat
           - zoxide
           - ripgrep
           - age
+          - unzip
         state: present
 
-    # This does not work in Docker but works if running locally
-    - name: Change default shell
-      shell: chsh -s `which zsh`
+    - name: Install non-Mac deps
+      when: ansible_facts['os_family'] != "Darwin"
+      ansible.builtin.package:
+        name:
+          - git
+          - zsh
+        state: present
 
-    # Not on apt yet unfortunately
-    - name: Install Starship
-      shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+    - name: Download Bitwarden CLI for Linux
+      when: ansible_facts['os_family'] != "Darwin"
+      ansible.builtin.get_url:
+        url: https://vault.bitwarden.com/download/?app=cli&platform=linux
+        dest: /tmp/bw.zip
 
+    - name: Download Bitwarden CLI for Mac OS
+      when: ansible_facts['os_family'] == "Darwin"
+      ansible.builtin.get_url:
+        url: https://vault.bitwarden.com/download/?app=cli&platform=macos
+        dest: /tmp/bw.zip
+
+    - name: Decompress Bitwarden CLI
+      shell: unzip -f /tmp/bw.zip && mv bw /usr/local/bin/bw
+
+    # FZF is still used by some other programs even with Atuin and autocomplete
     - name: Checkout fzf
       ansible.builtin.git:
         repo: "https://github.com/junegunn/fzf.git"
@@ -43,3 +56,7 @@
     # Not working on Ubuntu ARM64
     - name: Install atuin
       shell: curl -sS https://raw.githubusercontent.com/ellie/atuin/main/install.sh | bash
+
+    # This does not work in Docker but works if running locally
+    - name: Change default shell
+      shell: chsh -s `which zsh`
