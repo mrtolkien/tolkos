@@ -5,6 +5,7 @@
     - core
 
   block:
+    # Automatically uses apt/brew/...
     - name: Install CLI tools through package manager
       ansible.builtin.package:
         name:
@@ -17,6 +18,7 @@
           - unzip
         state: present
 
+    # On Mac I use the native installs
     - name: Install non-Mac deps
       when: ansible_facts['os_family'] != "Darwin"
       ansible.builtin.package:

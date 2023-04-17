@@ -82,18 +82,12 @@ Load dotfiles interactively with chezmoi:
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrtolkien && source ~/.zshrc
 ```
 
-## Python
+## TODO
 
-TODO Review, this is obsolete
-
-```shell
-ansible-galaxy install -r requirements.yaml
-ansible-playbook -K python.yaml
-```
-
-The python playbook installs:
-
-- [`pyenv`](https://github.com/pyenv/pyenv)
-- [`python`](https://en.wikipedia.org/wiki/Python_(programming_language))
-- [`pipx`](https://github.com/pypa/pipx)
-- [`poetry`](https://python-poetry.org/)
+- [] Try using `brew` for more things even though it doesn't work on Linux AMD64
+- [] Test playbook on Ubuntu 20
+  - [] `exa` and `helix` install need to be made into distro-specific things
+- [] Test playbook on Fedora
+  - [] `helix` needs a few additional things
+- [] Reliably test playbook on Mac OS
+- [] Add `fd` to install
